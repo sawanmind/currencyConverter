@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C9D41801266F1E010078C018 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D41800266F1E010078C018 /* AppDelegate.swift */; };
-		C9D41803266F1E010078C018 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D41802266F1E010078C018 /* SceneDelegate.swift */; };
 		C9D41805266F1E010078C018 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D41804266F1E010078C018 /* ViewController.swift */; };
-		C9D41808266F1E010078C018 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D41806266F1E010078C018 /* Main.storyboard */; };
 		C9D4180A266F1E040078C018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D41809266F1E040078C018 /* Assets.xcassets */; };
 		C9D4180D266F1E040078C018 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D4180B266F1E040078C018 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,9 +16,7 @@
 /* Begin PBXFileReference section */
 		C9D417FD266F1E010078C018 /* PayPayAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayPayAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D41800266F1E010078C018 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C9D41802266F1E010078C018 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C9D41804266F1E010078C018 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C9D41807266F1E010078C018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9D41809266F1E040078C018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9D4180C266F1E040078C018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9D4180E266F1E040078C018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,9 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				C9D41800266F1E010078C018 /* AppDelegate.swift */,
-				C9D41802266F1E010078C018 /* SceneDelegate.swift */,
 				C9D41804266F1E010078C018 /* ViewController.swift */,
-				C9D41806266F1E010078C018 /* Main.storyboard */,
 				C9D41809266F1E040078C018 /* Assets.xcassets */,
 				C9D4180B266F1E040078C018 /* LaunchScreen.storyboard */,
 				C9D4180E266F1E040078C018 /* Info.plist */,
@@ -126,7 +120,6 @@
 			files = (
 				C9D4180D266F1E040078C018 /* LaunchScreen.storyboard in Resources */,
 				C9D4180A266F1E040078C018 /* Assets.xcassets in Resources */,
-				C9D41808266F1E010078C018 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,21 +132,12 @@
 			files = (
 				C9D41805266F1E010078C018 /* ViewController.swift in Sources */,
 				C9D41801266F1E010078C018 /* AppDelegate.swift in Sources */,
-				C9D41803266F1E010078C018 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C9D41806266F1E010078C018 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C9D41807266F1E010078C018 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C9D4180B266F1E040078C018 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -296,7 +280,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.SawanKumar.PayPayAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,7 +299,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.SawanKumar.PayPayAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
