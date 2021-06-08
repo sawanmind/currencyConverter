@@ -9,7 +9,7 @@ import Foundation
 
 //MARK: Router -
 protocol CurrencyListRouterProtocol: AnyObject {
-    func pop()
+    func pop(_ code:String)
 }
 //MARK: ViewModel -
 protocol CurrencyListViewModelProtocol: CurrencyListViewDelegate {
@@ -23,6 +23,8 @@ protocol CurrencyListViewProtocol: AnyObject {
     func showErrorUI(with title:String, message:String)
 }
 
-protocol CurrencyListViewDelegate: AnyObject {
-    func didSelectCurrency()
+protocol CurrencyListViewDelegate: CurrencyListDelegate {}
+
+protocol CurrencyListDelegate: AnyObject {
+    func didSelectCurrency(_ code:String)
 }

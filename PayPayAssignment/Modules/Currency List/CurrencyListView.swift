@@ -58,6 +58,7 @@ extension CurrencyListView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.didSelectCurrency(self.dataSource[indexPath.row].code)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

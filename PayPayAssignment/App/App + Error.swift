@@ -19,3 +19,7 @@ enum AppError: Error, CustomStringConvertible {
     }
 }
 
+struct ErrorModel:Codable {
+    let code:Int?
+    let info:String?
+}

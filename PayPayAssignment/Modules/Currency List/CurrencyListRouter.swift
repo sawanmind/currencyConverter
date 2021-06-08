@@ -10,8 +10,10 @@ import UIKit
 class CurrencyListRouter: CurrencyListRouterProtocol {
 
     weak var viewController: UIViewController?
-
-    static func createModule() -> UIViewController {
+    weak static var delegate:CurrencyListDelegate?
+    
+    static func createModule(_ delegate:CurrencyListDelegate) -> UIViewController {
+        self.delegate = delegate
         let view = CurrencyListViewController()
         let router = CurrencyListRouter()
         let viewModel = CurrencyListViewModel(interface: view, router: router)
@@ -22,7 +24,8 @@ class CurrencyListRouter: CurrencyListRouterProtocol {
         return view
     }
     
-    func pop() {
+    func pop(_ code:String) {
+        CurrencyListRouter.delegate?.didSelectCurrency(code)
         self.viewController?.navigationController?.popViewController(animated: true)
     }
 }

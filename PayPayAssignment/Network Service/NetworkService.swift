@@ -31,8 +31,8 @@ class NetworkService: NSObject {
         var queryItems = [URLQueryItem(name: "access_key", value: Config.apiKey)]
         
         if let _query = query {
-            queryItems += _query
-            urlComponent?.queryItems = _query
+            queryItems.append(contentsOf: _query)
+            urlComponent?.queryItems = queryItems
         }else {
             urlComponent?.queryItems = queryItems
         }

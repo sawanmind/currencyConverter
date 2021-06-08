@@ -10,5 +10,5 @@ import Foundation
 struct Config {
     private init(){}
     static let baseUrl:String = "http://api.currencylayer.com/"
-    static let apiKey:String = "a27be112e8b9e06300005d90314e2dd3"
+    static let apiKey:String = "9bd924c057e960f59af252b3470ed16f"
 }

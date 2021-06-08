@@ -8,11 +8,12 @@
 import Foundation
 
 struct CurrencyListModel:Codable {
-    let success:Bool
-    private let currencies:[String:String]
+    let success:Bool?
+    private let currencies:[String:String]?
+    let error:ErrorModel?
     
     var list:[Currencies] {
-        return currencies.map({CurrencyListModel.Currencies(code: $0.key, country: $0.value)})
+        return currencies?.map({CurrencyListModel.Currencies(code: $0.key, country: $0.value)}) ?? []
     }
     
     struct Currencies:Codable {
@@ -21,18 +22,3 @@ struct CurrencyListModel:Codable {
     }
     
 }
-
-
-//{
-//    "success": true,
-//    "terms": "https://currencylayer.com/terms",
-//    "privacy": "https://currencylayer.com/privacy",
-//    "currencies": {
-//        "AED": "United Arab Emirates Dirham",
-//        "AFN": "Afghan Afghani",
-//        "ALL": "Albanian Lek",
-//        "AMD": "Armenian Dram",
-//        "ANG": "Netherlands Antillean Guilder",
-//        [...]
-//    }
-//}

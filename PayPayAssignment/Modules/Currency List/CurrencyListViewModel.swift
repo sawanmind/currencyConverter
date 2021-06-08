@@ -18,8 +18,8 @@ class CurrencyListViewModel: CurrencyListViewModelProtocol {
         self.router = router
     }
 
-    func didSelectCurrency() {
-        self.router.pop()
+    func didSelectCurrency(_ code:String) {
+        self.router.pop(code)
     }
 }
 
@@ -30,8 +30,14 @@ extension CurrencyListViewModel {
             switch result {
             case .success(let data):
                 if let model = data.decoder(with: CurrencyListModel.self) {
-                    DispatchQueue.main.async { [weak self] in
-                        self?.view?.updateUI(with: model)
+                    if let error = model.error {
+                        DispatchQueue.main.async { [weak self] in
+                            self?.view?.showErrorUI(with: "Oops!", message: error.info ?? "Error not found")
+                        }
+                    }else {
+                        DispatchQueue.main.async { [weak self] in
+                            self?.view?.updateUI(with: model)
+                        }
                     }
                 }else {
                     DispatchQueue.main.async { [weak self] in
