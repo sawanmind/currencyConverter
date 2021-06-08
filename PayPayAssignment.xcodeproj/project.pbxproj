@@ -11,6 +11,10 @@
 		C9D41805266F1E010078C018 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D41804266F1E010078C018 /* ViewController.swift */; };
 		C9D4180A266F1E040078C018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D41809266F1E040078C018 /* Assets.xcassets */; };
 		C9D4180D266F1E040078C018 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D4180B266F1E040078C018 /* LaunchScreen.storyboard */; };
+		C9F4F4F6266F1F5900CDDC5F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F4F5266F1F5900CDDC5F /* NetworkService.swift */; };
+		C9F4F4F8266F249C00CDDC5F /* Network + Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F4F7266F249C00CDDC5F /* Network + Error.swift */; };
+		C9F4F4FA266F257800CDDC5F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F4F9266F257800CDDC5F /* Config.swift */; };
+		C9F4F4FC266F279A00CDDC5F /* Network + Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F4FB266F279A00CDDC5F /* Network + Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,10 @@
 		C9D41809266F1E040078C018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9D4180C266F1E040078C018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9D4180E266F1E040078C018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9F4F4F5266F1F5900CDDC5F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		C9F4F4F7266F249C00CDDC5F /* Network + Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network + Error.swift"; sourceTree = "<group>"; };
+		C9F4F4F9266F257800CDDC5F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C9F4F4FB266F279A00CDDC5F /* Network + Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network + Endpoint.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,7 @@
 		C9D417FF266F1E010078C018 /* PayPayAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				C9F4F4F4266F1F4400CDDC5F /* Network Service */,
 				C9D41814266F1E920078C018 /* App */,
 				C9D41816266F1EAF0078C018 /* Modules */,
 				C9D41815266F1EA30078C018 /* Resource */,
@@ -63,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				C9D41800266F1E010078C018 /* AppDelegate.swift */,
+				C9F4F4F9266F257800CDDC5F /* Config.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -83,6 +93,16 @@
 				C9D41804266F1E010078C018 /* ViewController.swift */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		C9F4F4F4266F1F4400CDDC5F /* Network Service */ = {
+			isa = PBXGroup;
+			children = (
+				C9F4F4F5266F1F5900CDDC5F /* NetworkService.swift */,
+				C9F4F4F7266F249C00CDDC5F /* Network + Error.swift */,
+				C9F4F4FB266F279A00CDDC5F /* Network + Endpoint.swift */,
+			);
+			path = "Network Service";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,7 +175,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9D41805266F1E010078C018 /* ViewController.swift in Sources */,
+				C9F4F4F6266F1F5900CDDC5F /* NetworkService.swift in Sources */,
+				C9F4F4FA266F257800CDDC5F /* Config.swift in Sources */,
 				C9D41801266F1E010078C018 /* AppDelegate.swift in Sources */,
+				C9F4F4F8266F249C00CDDC5F /* Network + Error.swift in Sources */,
+				C9F4F4FC266F279A00CDDC5F /* Network + Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
