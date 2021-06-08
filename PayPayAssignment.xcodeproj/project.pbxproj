@@ -52,13 +52,37 @@
 		C9D417FF266F1E010078C018 /* PayPayAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				C9D41814266F1E920078C018 /* App */,
+				C9D41816266F1EAF0078C018 /* Modules */,
+				C9D41815266F1EA30078C018 /* Resource */,
+			);
+			path = PayPayAssignment;
+			sourceTree = "<group>";
+		};
+		C9D41814266F1E920078C018 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				C9D41800266F1E010078C018 /* AppDelegate.swift */,
-				C9D41804266F1E010078C018 /* ViewController.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C9D41815266F1EA30078C018 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
 				C9D41809266F1E040078C018 /* Assets.xcassets */,
 				C9D4180B266F1E040078C018 /* LaunchScreen.storyboard */,
 				C9D4180E266F1E040078C018 /* Info.plist */,
 			);
-			path = PayPayAssignment;
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		C9D41816266F1EAF0078C018 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C9D41804266F1E010078C018 /* ViewController.swift */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,12 +295,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4JC6YPF6RU;
-				INFOPLIST_FILE = PayPayAssignment/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PayPayAssignment/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SawanKumar.PayPayAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -290,12 +316,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4JC6YPF6RU;
-				INFOPLIST_FILE = PayPayAssignment/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PayPayAssignment/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SawanKumar.PayPayAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
