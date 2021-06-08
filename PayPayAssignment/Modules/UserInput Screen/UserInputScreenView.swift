@@ -22,6 +22,7 @@ class UserInputScreenView: UIView {
     }
     
     func updateUI(with data:UserInputScreenModel) {
+        self.shouldShowLoader(false)
         self.errorView.isHidden = true
         self.tableView.isHidden = false
         self.dataSource = data.list
@@ -34,6 +35,7 @@ class UserInputScreenView: UIView {
     }
     
     func showErrorUI(with title:String, message:String) {
+        self.shouldShowLoader(false)
         self.errorView.isHidden = false
         self.tableView.isHidden = true
         self.errorView.updateUI(with: title, message: message)

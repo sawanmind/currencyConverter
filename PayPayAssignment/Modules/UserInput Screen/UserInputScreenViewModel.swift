@@ -12,15 +12,21 @@ class UserInputScreenViewModel: UserInputScreenViewModelProtocol {
     weak private var view: UserInputScreenViewProtocol?
     private let router: UserInputScreenRouterProtocol
     private let service = NetworkService()
+    private let persistenceManager = PersistenceManager(.userDefault)
     
     init(interface: UserInputScreenViewProtocol, router: UserInputScreenRouterProtocol) {
         self.view = interface
         self.router = router
         self.observeSelectedCurrency()
     }
+
     
     func fetch() {
-        self.fetch("USD")
+        if let model = self.persistenceManager.fetch(for: Endpoint.live.get)?.decoder(with: UserInputScreenModel.self) {
+            self.view?.updateUI(with: model)
+        }else {
+            self.fetch("USD")
+        }
     }
     
     private func observeSelectedCurrency() {
@@ -58,6 +64,7 @@ extension UserInputScreenViewModel {
                             self?.view?.showErrorUI(with: "Oops!", message: error.info ?? "Error not found")
                         }
                     }else {
+                        self?.persistenceManager.save(data, for: Endpoint.live.get)
                         DispatchQueue.main.async { [weak self] in
                             self?.view?.updateUI(with: model)
                         }

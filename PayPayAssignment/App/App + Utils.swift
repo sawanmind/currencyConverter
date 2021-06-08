@@ -30,3 +30,9 @@ extension UITextField {
 func dismissKeyboard() {
     UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder),to: nil, from: nil, for: nil)
 }
+
+extension Date {
+    func adding(minutes: Int) -> Date {
+        return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
+    }
+}

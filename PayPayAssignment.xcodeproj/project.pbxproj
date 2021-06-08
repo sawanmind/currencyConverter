@@ -31,6 +31,9 @@
 		C9F4F538266F46CF00CDDC5F /* UserInputScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F532266F46CF00CDDC5F /* UserInputScreenView.swift */; };
 		C9F4F539266F46CF00CDDC5F /* UserInputScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F533266F46CF00CDDC5F /* UserInputScreenViewController.swift */; };
 		C9F4F53B266F9E2900CDDC5F /* App + Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F53A266F9E2900CDDC5F /* App + Utils.swift */; };
+		C9F4F53E266FA4B500CDDC5F /* Persistence + Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F53D266FA4B500CDDC5F /* Persistence + Protocols.swift */; };
+		C9F4F540266FA52A00CDDC5F /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F53F266FA52A00CDDC5F /* PersistenceManager.swift */; };
+		C9F4F542266FA8A500CDDC5F /* Persistence + UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F541266FA8A500CDDC5F /* Persistence + UserDefault.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		C9F4F532266F46CF00CDDC5F /* UserInputScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInputScreenView.swift; sourceTree = "<group>"; };
 		C9F4F533266F46CF00CDDC5F /* UserInputScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInputScreenViewController.swift; sourceTree = "<group>"; };
 		C9F4F53A266F9E2900CDDC5F /* App + Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App + Utils.swift"; sourceTree = "<group>"; };
+		C9F4F53D266FA4B500CDDC5F /* Persistence + Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Persistence + Protocols.swift"; sourceTree = "<group>"; };
+		C9F4F53F266FA52A00CDDC5F /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		C9F4F541266FA8A500CDDC5F /* Persistence + UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Persistence + UserDefault.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,7 @@
 		C9D417FF266F1E010078C018 /* PayPayAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				C9F4F53C266FA46300CDDC5F /* Persistence Manager */,
 				C9F4F524266F359100CDDC5F /* Common */,
 				C9F4F4F4266F1F4400CDDC5F /* Network Service */,
 				C9D41814266F1E920078C018 /* App */,
@@ -177,6 +184,16 @@
 			path = "UserInput Screen";
 			sourceTree = "<group>";
 		};
+		C9F4F53C266FA46300CDDC5F /* Persistence Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C9F4F53D266FA4B500CDDC5F /* Persistence + Protocols.swift */,
+				C9F4F53F266FA52A00CDDC5F /* PersistenceManager.swift */,
+				C9F4F541266FA8A500CDDC5F /* Persistence + UserDefault.swift */,
+			);
+			path = "Persistence Manager";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -249,8 +266,10 @@
 				C9F4F4F6266F1F5900CDDC5F /* NetworkService.swift in Sources */,
 				C9F4F51A266F31CC00CDDC5F /* CurrencyListViewModel.swift in Sources */,
 				C9F4F51C266F31CC00CDDC5F /* CurrencyListViewController.swift in Sources */,
+				C9F4F540266FA52A00CDDC5F /* PersistenceManager.swift in Sources */,
 				C9F4F539266F46CF00CDDC5F /* UserInputScreenViewController.swift in Sources */,
 				C9F4F51B266F31CC00CDDC5F /* CurrencyListRouter.swift in Sources */,
+				C9F4F53E266FA4B500CDDC5F /* Persistence + Protocols.swift in Sources */,
 				C9F4F521266F331400CDDC5F /* CurrencyListModel.swift in Sources */,
 				C9F4F535266F46CF00CDDC5F /* UserInputScreenViewModel.swift in Sources */,
 				C9F4F53B266F9E2900CDDC5F /* App + Utils.swift in Sources */,
@@ -263,6 +282,7 @@
 				C9F4F51D266F31CC00CDDC5F /* CurrencyListProtocols.swift in Sources */,
 				C9F4F4F8266F249C00CDDC5F /* Network + Error.swift in Sources */,
 				C9F4F538266F46CF00CDDC5F /* UserInputScreenView.swift in Sources */,
+				C9F4F542266FA8A500CDDC5F /* Persistence + UserDefault.swift in Sources */,
 				C9F4F4FC266F279A00CDDC5F /* Network + Endpoint.swift in Sources */,
 				C9F4F52C266F403700CDDC5F /* App + Endpoints.swift in Sources */,
 				C9F4F528266F3ED500CDDC5F /* Network + Utils.swift in Sources */,
