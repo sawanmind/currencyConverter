@@ -38,11 +38,11 @@ class CurrencyConverter {
         self.isPersistenceEnabled = isPersistenceEnabled
         
         if let userDefaultsExchangeRates = persistence.fetch(for: Keys.exchangeRates) as? [String : Double] {
-            self.exchangeRates = userDefaultsExchangeRates
+            self.exchangeRates.merge(dict: userDefaultsExchangeRates)
             self.delegate?.refreshUI(exchangeRates: userDefaultsExchangeRates)
         } else {
             let _exchangeRates = LocalCurrencyConverter.fetchExchangeRates()
-            self.exchangeRates = _exchangeRates
+            self.exchangeRates.merge(dict: _exchangeRates)
             self.delegate?.refreshUI(exchangeRates: _exchangeRates)
         }
         
@@ -50,7 +50,7 @@ class CurrencyConverter {
     }
   
     private func saveExchangeRates(exchangeRates : [String : Double], isPersistenceEnabled:Bool = false) {
-        self.exchangeRates = exchangeRates
+        self.exchangeRates.merge(dict: exchangeRates)
         if isPersistenceEnabled {
             persistence.update(exchangeRates, for: Keys.exchangeRates)
         }
@@ -61,9 +61,8 @@ class CurrencyConverter {
             switch result {
             case .success(let data):
                 if let model = data.decoder(with: UserInputScreenModel.self) {
-                    self?.exchangeRates.removeAll()
-                    
                     for item in model.quotes ?? [:] {
+                        // Here, I am removing prefix USD from currency list
                         let _key = item.key.deletingPrefix(Config.defaultFromCurrencyCode)
                         self?.exchangeRates.updateValue(item.value, forKey: _key)
                     }
@@ -89,12 +88,5 @@ class CurrencyConverter {
                 self.refreshExchangeRates()
             }
         }
-    }
-}
-
-extension String {
-    func deletingPrefix(_ prefix: String) -> String {
-        guard self.hasPrefix(prefix) else { return self }
-        return String(self.dropFirst(prefix.count))
     }
 }

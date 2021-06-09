@@ -90,18 +90,20 @@ class UserInputScreenViewModel: UserInputScreenViewModelProtocol {
         self.convert()
     }
     
-    func convert() {
+    @discardableResult
+    func convert() -> Double? {
         guard let value = Double(self.latestInputVlaue) else {
             self.view?.updateToExchangeRate("")
             self.view?.updateFromExchangeRate("")
-            return}
+            return nil}
         let val = currencyConverter.convert(value, valueCurrency: valueCurrency, outputCurrency: outputCurrency) ?? 0
-        guard let _sender = sender else {return}
+        guard let _sender = sender else {return nil}
         switch _sender {
         case .from:
             self.view?.updateToExchangeRate(String(format: "%0.2f", val))
         case .to:
             self.view?.updateFromExchangeRate(String(format: "%0.2f", val))
         }
+        return val
     }
 }

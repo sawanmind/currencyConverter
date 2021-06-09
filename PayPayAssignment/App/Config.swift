@@ -16,6 +16,6 @@ struct Config {
     static let errorTitle:String = "Oops!"
     static let errorDefaultMessage:String = "Something went wrong. Please try again later"
     static let refreshInterval:TimeInterval = 1
-    static let refreshTimeInterval:Int = 2
+    static let refreshTimeInterval:Int = 29
     static let refreshTimeIntervalKey:String = "lastTimeSave"
 }

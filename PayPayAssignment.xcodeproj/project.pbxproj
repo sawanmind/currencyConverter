@@ -127,6 +127,7 @@
 		C9D417FF266F1E010078C018 /* PayPayAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				C9F4F5572670CDCA00CDDC5F /* Helpers */,
 				C9F4F53C266FA46300CDDC5F /* Persistence Manager */,
 				C9F4F524266F359100CDDC5F /* Common */,
 				C9F4F4F4266F1F4400CDDC5F /* Network Service */,
@@ -142,11 +143,6 @@
 			children = (
 				C9D41800266F1E010078C018 /* AppDelegate.swift */,
 				C9F4F4F9266F257800CDDC5F /* Config.swift */,
-				C9F4F529266F3FA000CDDC5F /* App + Error.swift */,
-				C9F4F52B266F403700CDDC5F /* App + Endpoints.swift */,
-				C9F4F53A266F9E2900CDDC5F /* App + Utils.swift */,
-				C9F4F553267078B300CDDC5F /* CurrencyConverter.swift */,
-				C9F4F5552670843400CDDC5F /* LocalCurrencyConverter.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -233,6 +229,18 @@
 				C9F4F54B266FBBA100CDDC5F /* Info.plist */,
 			);
 			path = PayPayAssignmentTests;
+			sourceTree = "<group>";
+		};
+		C9F4F5572670CDCA00CDDC5F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C9F4F529266F3FA000CDDC5F /* App + Error.swift */,
+				C9F4F52B266F403700CDDC5F /* App + Endpoints.swift */,
+				C9F4F53A266F9E2900CDDC5F /* App + Utils.swift */,
+				C9F4F553267078B300CDDC5F /* CurrencyConverter.swift */,
+				C9F4F5552670843400CDDC5F /* LocalCurrencyConverter.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
