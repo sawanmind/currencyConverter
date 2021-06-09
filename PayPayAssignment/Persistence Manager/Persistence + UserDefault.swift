@@ -8,7 +8,7 @@
 import Foundation
 
 extension UserDefaults: PersistenceProtocols {
-    func save(_ item: Data, for key:String) {
+    func save(_ item: Any, for key:String) {
         UserDefaults.standard.setValue(item, forKey: key)
         UserDefaults.standard.synchronize()
     }
@@ -18,13 +18,12 @@ extension UserDefaults: PersistenceProtocols {
         UserDefaults.standard.synchronize()
     }
     
-    func update(_ item: Data, for key:String) {
+    func update(_ item: Any, for key:String) {
         UserDefaults.standard.delete(for: key)
         UserDefaults.standard.save(item, for: key)
-        UserDefaults.standard.synchronize()
     }
     
-    func fetch(for key:String) -> Data? {
-        return UserDefaults.standard.data(forKey: key)
+    func fetch(for key:String) -> Any? {
+        return UserDefaults.standard.object(forKey: key)
     }
 }

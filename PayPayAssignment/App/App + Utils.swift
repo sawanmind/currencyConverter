@@ -36,3 +36,16 @@ extension Date {
         return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
     }
 }
+
+extension String {
+    func customize(color: UIColor, font:UIFont? = nil) -> NSMutableAttributedString {
+        if font != nil {
+            return NSMutableAttributedString(string: self, attributes:[NSAttributedString.Key.foregroundColor : color , NSAttributedString.Key.font:font as Any])
+            
+        }else {
+            return NSMutableAttributedString(string: self, attributes:
+                [NSAttributedString.Key.foregroundColor : color])
+        }
+        
+    }
+}

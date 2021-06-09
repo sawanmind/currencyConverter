@@ -10,25 +10,35 @@ import Foundation
 //MARK: Router -
 protocol UserInputScreenRouterProtocol: AnyObject {
     func routeToCurrencyList()
-    var selectCurrency:((String)->())? { get set }
+}
+
+protocol UserInputScreenRouterOutputProtocol: AnyObject {
+    var viewModel: UserInputScreenViewModelProtocol?  { get set }
 }
 
 //MARK: ViewModel -
-protocol UserInputScreenViewModelProtocol: UserInputScreenViewDelegate {
+protocol UserInputScreenViewModelProtocol: UserInputScreenViewDelegate, CurrencyConverterDelegate {
     func fetch()
+    var dataSource:[UserInputScreenModel.Rate]? {get set}
+    var isPersistenceEnabled:Bool {get set}
+    func selectedCurrency(_ code:String)
 }
 
 
 //MARK: View -
 protocol UserInputScreenViewProtocol: AnyObject {
     var viewModel: UserInputScreenViewModelProtocol?  { get set }
-    func updateUI(with data:UserInputScreenModel)
+    func updateUI()
     func showErrorUI(with title:String, message:String)
-    func selectedCurrency(_ code:String)
+    func selectedFromCurrency(_ code:String)
+    func selectedToCurrency(_ code:String)
     func shouldShowLoader(_ flag:Bool)
+    
+    func updateFromExchangeRate(_ value:String)
+    func updateToExchangeRate(_ value:String)
 }
 
 protocol UserInputScreenViewDelegate: AnyObject {
-    func selectCurrency()
-    func userInput(_ input:String)
+    func didTapToSelectCurrency(_ tag:Int)
+    func userInput(_ input:String, tag:Int)
 }

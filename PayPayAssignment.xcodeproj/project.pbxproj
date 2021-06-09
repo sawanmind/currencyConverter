@@ -34,7 +34,21 @@
 		C9F4F53E266FA4B500CDDC5F /* Persistence + Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F53D266FA4B500CDDC5F /* Persistence + Protocols.swift */; };
 		C9F4F540266FA52A00CDDC5F /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F53F266FA52A00CDDC5F /* PersistenceManager.swift */; };
 		C9F4F542266FA8A500CDDC5F /* Persistence + UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F541266FA8A500CDDC5F /* Persistence + UserDefault.swift */; };
+		C9F4F54A266FBBA100CDDC5F /* PayPayAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F549266FBBA100CDDC5F /* PayPayAssignmentTests.swift */; };
+		C9F4F5522670639B00CDDC5F /* ConversionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F5512670639B00CDDC5F /* ConversionTableViewCell.swift */; };
+		C9F4F554267078B300CDDC5F /* CurrencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F553267078B300CDDC5F /* CurrencyConverter.swift */; };
+		C9F4F5562670843400CDDC5F /* LocalCurrencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4F5552670843400CDDC5F /* LocalCurrencyConverter.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C9F4F54C266FBBA100CDDC5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9D417F5266F1E000078C018 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9D417FC266F1E010078C018;
+			remoteInfo = PayPayAssignment;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C9D417FD266F1E010078C018 /* PayPayAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayPayAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,10 +80,23 @@
 		C9F4F53D266FA4B500CDDC5F /* Persistence + Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Persistence + Protocols.swift"; sourceTree = "<group>"; };
 		C9F4F53F266FA52A00CDDC5F /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		C9F4F541266FA8A500CDDC5F /* Persistence + UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Persistence + UserDefault.swift"; sourceTree = "<group>"; };
+		C9F4F547266FBBA100CDDC5F /* PayPayAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayPayAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9F4F549266FBBA100CDDC5F /* PayPayAssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPayAssignmentTests.swift; sourceTree = "<group>"; };
+		C9F4F54B266FBBA100CDDC5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9F4F5512670639B00CDDC5F /* ConversionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionTableViewCell.swift; sourceTree = "<group>"; };
+		C9F4F553267078B300CDDC5F /* CurrencyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverter.swift; sourceTree = "<group>"; };
+		C9F4F5552670843400CDDC5F /* LocalCurrencyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCurrencyConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C9D417FA266F1E010078C018 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9F4F544266FBBA100CDDC5F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -83,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				C9D417FF266F1E010078C018 /* PayPayAssignment */,
+				C9F4F548266FBBA100CDDC5F /* PayPayAssignmentTests */,
 				C9D417FE266F1E010078C018 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				C9D417FD266F1E010078C018 /* PayPayAssignment.app */,
+				C9F4F547266FBBA100CDDC5F /* PayPayAssignmentTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,6 +145,8 @@
 				C9F4F529266F3FA000CDDC5F /* App + Error.swift */,
 				C9F4F52B266F403700CDDC5F /* App + Endpoints.swift */,
 				C9F4F53A266F9E2900CDDC5F /* App + Utils.swift */,
+				C9F4F553267078B300CDDC5F /* CurrencyConverter.swift */,
+				C9F4F5552670843400CDDC5F /* LocalCurrencyConverter.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -180,6 +211,7 @@
 				C9F4F532266F46CF00CDDC5F /* UserInputScreenView.swift */,
 				C9F4F533266F46CF00CDDC5F /* UserInputScreenViewController.swift */,
 				C9F4F52F266F46CF00CDDC5F /* UserInputScreenViewModel.swift */,
+				C9F4F5512670639B00CDDC5F /* ConversionTableViewCell.swift */,
 			);
 			path = "UserInput Screen";
 			sourceTree = "<group>";
@@ -192,6 +224,15 @@
 				C9F4F541266FA8A500CDDC5F /* Persistence + UserDefault.swift */,
 			);
 			path = "Persistence Manager";
+			sourceTree = "<group>";
+		};
+		C9F4F548266FBBA100CDDC5F /* PayPayAssignmentTests */ = {
+			isa = PBXGroup;
+			children = (
+				C9F4F549266FBBA100CDDC5F /* PayPayAssignmentTests.swift */,
+				C9F4F54B266FBBA100CDDC5F /* Info.plist */,
+			);
+			path = PayPayAssignmentTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +255,24 @@
 			productReference = C9D417FD266F1E010078C018 /* PayPayAssignment.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C9F4F546266FBBA100CDDC5F /* PayPayAssignmentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9F4F54E266FBBA100CDDC5F /* Build configuration list for PBXNativeTarget "PayPayAssignmentTests" */;
+			buildPhases = (
+				C9F4F543266FBBA100CDDC5F /* Sources */,
+				C9F4F544266FBBA100CDDC5F /* Frameworks */,
+				C9F4F545266FBBA100CDDC5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C9F4F54D266FBBA100CDDC5F /* PBXTargetDependency */,
+			);
+			name = PayPayAssignmentTests;
+			productName = PayPayAssignmentTests;
+			productReference = C9F4F547266FBBA100CDDC5F /* PayPayAssignmentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -225,6 +284,10 @@
 				TargetAttributes = {
 					C9D417FC266F1E010078C018 = {
 						CreatedOnToolsVersion = 12.5;
+					};
+					C9F4F546266FBBA100CDDC5F = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = C9D417FC266F1E010078C018;
 					};
 				};
 			};
@@ -242,6 +305,7 @@
 			projectRoot = "";
 			targets = (
 				C9D417FC266F1E010078C018 /* PayPayAssignment */,
+				C9F4F546266FBBA100CDDC5F /* PayPayAssignmentTests */,
 			);
 		};
 /* End PBXProject section */
@@ -256,6 +320,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9F4F545266FBBA100CDDC5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -264,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9F4F4F6266F1F5900CDDC5F /* NetworkService.swift in Sources */,
+				C9F4F5562670843400CDDC5F /* LocalCurrencyConverter.swift in Sources */,
 				C9F4F51A266F31CC00CDDC5F /* CurrencyListViewModel.swift in Sources */,
 				C9F4F51C266F31CC00CDDC5F /* CurrencyListViewController.swift in Sources */,
 				C9F4F540266FA52A00CDDC5F /* PersistenceManager.swift in Sources */,
@@ -280,6 +352,8 @@
 				C9F4F536266F46CF00CDDC5F /* UserInputScreenProtocols.swift in Sources */,
 				C9F4F526266F35A500CDDC5F /* ErrorView.swift in Sources */,
 				C9F4F51D266F31CC00CDDC5F /* CurrencyListProtocols.swift in Sources */,
+				C9F4F5522670639B00CDDC5F /* ConversionTableViewCell.swift in Sources */,
+				C9F4F554267078B300CDDC5F /* CurrencyConverter.swift in Sources */,
 				C9F4F4F8266F249C00CDDC5F /* Network + Error.swift in Sources */,
 				C9F4F538266F46CF00CDDC5F /* UserInputScreenView.swift in Sources */,
 				C9F4F542266FA8A500CDDC5F /* Persistence + UserDefault.swift in Sources */,
@@ -291,7 +365,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9F4F543266FBBA100CDDC5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9F4F54A266FBBA100CDDC5F /* PayPayAssignmentTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C9F4F54D266FBBA100CDDC5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9D417FC266F1E010078C018 /* PayPayAssignment */;
+			targetProxy = C9F4F54C266FBBA100CDDC5F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C9D4180B266F1E040078C018 /* LaunchScreen.storyboard */ = {
@@ -463,6 +553,46 @@
 			};
 			name = Release;
 		};
+		C9F4F54F266FBBA100CDDC5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4JC6YPF6RU;
+				INFOPLIST_FILE = PayPayAssignmentTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SawanKumar.PayPayAssignmentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PayPayAssignment.app/PayPayAssignment";
+			};
+			name = Debug;
+		};
+		C9F4F550266FBBA100CDDC5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4JC6YPF6RU;
+				INFOPLIST_FILE = PayPayAssignmentTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SawanKumar.PayPayAssignmentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PayPayAssignment.app/PayPayAssignment";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -480,6 +610,15 @@
 			buildConfigurations = (
 				C9D41812266F1E040078C018 /* Debug */,
 				C9D41813266F1E040078C018 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9F4F54E266FBBA100CDDC5F /* Build configuration list for PBXNativeTarget "PayPayAssignmentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9F4F54F266FBBA100CDDC5F /* Debug */,
+				C9F4F550266FBBA100CDDC5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -8,10 +8,10 @@
 import Foundation
 
 protocol PersistenceProtocols:AnyObject {
-    func save(_ item:Data, for key:String)
+    func save(_ item:Any, for key:String)
     func delete(for key:String)
-    func update(_ item:Data, for key:String)
-    func fetch(for key:String) -> Data?
+    func update(_ item:Any, for key:String)
+    func fetch(for key:String) -> Any?
 }
 
 enum PersistenceType {

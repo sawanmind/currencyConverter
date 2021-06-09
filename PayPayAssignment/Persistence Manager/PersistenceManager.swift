@@ -14,7 +14,7 @@ class PersistenceManager: PersistenceProtocols {
         self.type = type
     }
     
-    func save(_ item: Data, for key:String) {
+    func save(_ item: Any, for key:String) {
         switch self.type {
         case .userDefault:
             UserDefaults.standard.save(item, for: key)
@@ -28,14 +28,14 @@ class PersistenceManager: PersistenceProtocols {
         }
     }
     
-    func update(_ item: Data, for key:String) {
+    func update(_ item: Any, for key:String) {
         switch self.type {
         case .userDefault:
             UserDefaults.standard.update(item, for: key)
         }
     }
     
-    func fetch(for key:String) -> Data? {
+    func fetch(for key:String) -> Any? {
         switch self.type {
         case .userDefault:
             return UserDefaults.standard.fetch(for: key)

@@ -14,12 +14,15 @@ protocol CurrencyListRouterProtocol: AnyObject {
 //MARK: ViewModel -
 protocol CurrencyListViewModelProtocol: CurrencyListViewDelegate {
     func fetch()
+    var dataSource:[CurrencyListModel.Currencies]? {get set}
+    var filteredDataSource: [CurrencyListModel.Currencies]? {get set}
+    func applyFilter(_ text:String)
 }
 
 //MARK: View -
 protocol CurrencyListViewProtocol: AnyObject {
     var viewModel: CurrencyListViewModelProtocol?  { get set }
-    func updateUI(with data:CurrencyListModel)
+    func updateUI()
     func showErrorUI(with title:String, message:String)
 }
 

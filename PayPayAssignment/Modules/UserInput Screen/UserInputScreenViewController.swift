@@ -23,7 +23,7 @@ class UserInputScreenViewController: UIViewController, UserInputScreenViewProtoc
     }
  
     private lazy var containerView:UserInputScreenView = {
-        let instance = UserInputScreenView()
+        let instance = UserInputScreenView(viewModel: self.viewModel)
         instance.delegate = self.viewModel
         instance.translatesAutoresizingMaskIntoConstraints = false
         return instance
@@ -43,19 +43,31 @@ class UserInputScreenViewController: UIViewController, UserInputScreenViewProtoc
 
 
 extension UserInputScreenViewController {
-    func updateUI(with data:UserInputScreenModel) {
-        self.containerView.updateUI(with: data)
+    func updateUI() {
+        self.containerView.updateUI()
     }
     
     func showErrorUI(with title:String, message:String) {
         self.containerView.showErrorUI(with: title, message: message)
     }
-    
-    func selectedCurrency(_ code:String) {
-        self.containerView.selectedCurrency(code)
-    }
-    
+ 
     func shouldShowLoader(_ flag:Bool) {
         self.containerView.shouldShowLoader(flag)
+    }
+    
+    func selectedToCurrency(_ code: String) {
+        self.containerView.selectedToCurrency(code)
+    }
+    
+    func selectedFromCurrency(_ code: String) {
+        self.containerView.selectedFromCurrency(code)
+    }
+    
+    func updateFromExchangeRate(_ value:String) {
+        self.containerView.updateFromExchangeRate(value)
+    }
+    
+    func updateToExchangeRate(_ value:String) {
+        self.containerView.updateToExchangeRate(value)
     }
 }

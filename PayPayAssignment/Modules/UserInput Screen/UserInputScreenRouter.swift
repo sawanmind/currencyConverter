@@ -7,16 +7,18 @@
 
 import UIKit
 
-class UserInputScreenRouter: UserInputScreenRouterProtocol, CurrencyListDelegate {
-
+class UserInputScreenRouter: UserInputScreenRouterProtocol, CurrencyListDelegate, UserInputScreenRouterOutputProtocol {
+    
     weak var viewController: UIViewController?
-    var selectCurrency:((String)->())?
+    weak var viewModel: UserInputScreenViewModelProtocol?
     
     static func createModule() -> UIViewController {
         let view = UserInputScreenViewController()
         let router = UserInputScreenRouter()
         let viewModel = UserInputScreenViewModel(interface: view, router: router)
-
+        
+        viewModel.isPersistenceEnabled = true // This can configure as per requirement.
+        router.viewModel = viewModel
         view.viewModel = viewModel
         router.viewController = view
 
@@ -29,6 +31,6 @@ class UserInputScreenRouter: UserInputScreenRouterProtocol, CurrencyListDelegate
     }
     
     func didSelectCurrency(_ code: String) {
-        self.selectCurrency?(code)
+        self.viewModel?.selectedCurrency(code)
     }
 }

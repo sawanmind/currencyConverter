@@ -8,12 +8,14 @@
 import Foundation
 import UIKit
 
-class CurrencyListView: UIView {
+class CurrencyListView: UIView, UISearchResultsUpdating {
     weak var delegate:CurrencyListViewDelegate?
-    private var dataSource = [CurrencyListModel.Currencies]()
+    private var viewModel: CurrencyListViewModelProtocol?
+    private let searchController = UISearchController(searchResultsController: nil)
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(viewModel: CurrencyListViewModelProtocol?) {
+        super.init(frame: .null)
+        self.viewModel = viewModel
         setupUI()
     }
     
@@ -21,13 +23,24 @@ class CurrencyListView: UIView {
         super.init(coder: coder)
     }
     
-    func updateUI(with data:CurrencyListModel) {
-        self.dataSource = data.list
+    func updateUI() {
         self.tableView.reloadData()
+    }
+    
+    func insertSearchBar(_ searchBar: UISearchBar) {
+        self.tableView.tableHeaderView = searchBar
     }
     
     private func setupUI(){
         self.backgroundColor = .white
+        
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search using country name"
+        searchController.searchBar.sizeToFit()
+        self.insertSearchBar(searchController.searchBar)
+        
         self.addSubview(tableView)
         tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -48,17 +61,28 @@ class CurrencyListView: UIView {
 
 extension CurrencyListView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSource.count
+        return self.searchController.isActive ? self.viewModel?.filteredDataSource?.count ?? 0 : self.viewModel?.dataSource?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath) 
-        cell.textLabel?.text = "\(self.dataSource[indexPath.row].code) - \(self.dataSource[indexPath.row].country)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        
+        if let _datasource = self.searchController.isActive ? self.viewModel?.filteredDataSource : self.viewModel?.dataSource {
+            cell.textLabel?.text = "\(_datasource[indexPath.row].code) - \(_datasource[indexPath.row].country)"
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.delegate?.didSelectCurrency(self.dataSource[indexPath.row].code)
+        if let _datasource = self.searchController.isActive ? self.viewModel?.filteredDataSource : self.viewModel?.dataSource {
+            self.searchController.isActive = false
+            self.delegate?.didSelectCurrency(_datasource[indexPath.row].code)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        self.viewModel?.applyFilter(searchController.searchBar.text ?? "")
     }
 }

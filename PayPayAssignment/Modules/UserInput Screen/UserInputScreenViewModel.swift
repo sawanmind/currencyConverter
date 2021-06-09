@@ -9,78 +9,99 @@ import UIKit
 
 class UserInputScreenViewModel: UserInputScreenViewModelProtocol {
     
+    enum Sender {
+        case from
+        case to
+    }
+    
     weak private var view: UserInputScreenViewProtocol?
     private let router: UserInputScreenRouterProtocol
-    private let service = NetworkService()
-    private let persistenceManager = PersistenceManager(.userDefault)
+    
+    private var latestInputVlaue:String = ""
+    
+    var dataSource: [UserInputScreenModel.Rate]?
+    var isPersistenceEnabled: Bool = false
+    lazy var currencyConverter = CurrencyConverter()
+    private var valueCurrency:String = Config.defaultFromCurrencyCode
+    private var outputCurrency:String = Config.defaultToCurrencyCode
+
+    private var _fromCurrency:String = Config.defaultFromCurrencyCode
+    private var _toCurrency:String = Config.defaultToCurrencyCode
+    
+    private var sender:Sender?
     
     init(interface: UserInputScreenViewProtocol, router: UserInputScreenRouterProtocol) {
         self.view = interface
         self.router = router
-        self.observeSelectedCurrency()
+        self.currencyConverter.delegate = self
     }
 
+    func refreshUI(exchangeRates: [String : Double]) {
+        let _exchangeRates = exchangeRates.map({UserInputScreenModel.Rate.init(code: $0.key, rate: "$1 = " + String(format: "%0.2f ", $0.value) + $0.key)})
+        self.dataSource = _exchangeRates
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.shouldShowLoader(false)
+            
+            if _exchangeRates.isEmpty {
+                self?.view?.showErrorUI(with: Config.errorTitle, message: Config.errorDefaultMessage)
+            }else {
+                self?.view?.updateUI()
+            }
+        }
+    }
     
     func fetch() {
-        if let model = self.persistenceManager.fetch(for: Endpoint.live.get)?.decoder(with: UserInputScreenModel.self) {
-            self.view?.updateUI(with: model)
-        }else {
-            self.fetch("USD")
-        }
-    }
-    
-    private func observeSelectedCurrency() {
-        self.router.selectCurrency = { [weak self] code in
-            self?.view?.selectedCurrency(code)
-            self?.fetch(code)
-        }
+        self.view?.shouldShowLoader(true)
+        self.currencyConverter.fetchExchangeRates(self.isPersistenceEnabled)
     }
 
-    func selectCurrency() {
+    func selectedCurrency(_ code: String) {
+        if sender == .from {
+            self._fromCurrency = code
+            self.valueCurrency = _fromCurrency
+            self.outputCurrency = _toCurrency
+            self.view?.selectedFromCurrency(code)
+        }else {
+            self._toCurrency = code
+            self.valueCurrency = _toCurrency
+            self.outputCurrency = _fromCurrency
+            self.view?.selectedToCurrency(code)
+        }
+        self.convert()
+    }
+ 
+    func didTapToSelectCurrency(_ tag:Int) {
+        self.sender = tag == 0 ? .from : .to
         self.router.routeToCurrencyList()
     }
     
-    func userInput(_ input:String) {
-        print(input)
+    func userInput(_ input:String, tag:Int) {
+        if tag == 0 {
+            self.sender = .from
+            self.valueCurrency = _fromCurrency
+            self.outputCurrency = _toCurrency
+        }else {
+            self.sender = .to
+            self.valueCurrency = _toCurrency
+            self.outputCurrency = _fromCurrency
+        }
+        self.latestInputVlaue = input
+        self.convert()
     }
-}
-
-
-extension UserInputScreenViewModel {
-    private func fetch(_ code:String) {
-        self.view?.shouldShowLoader(true)
-        self.service.request(query:[URLQueryItem(name: "source", value: code)],
-                             endpoint: Endpoint.live.get, method: .get)
-        { [weak self] result in
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async { [weak self] in
-                    self?.view?.shouldShowLoader(false)
-                }
-                
-                if let model = data.decoder(with: UserInputScreenModel.self) {
-                    if let error = model.error {
-                        DispatchQueue.main.async { [weak self] in
-                            self?.view?.showErrorUI(with: "Oops!", message: error.info ?? "Error not found")
-                        }
-                    }else {
-                        self?.persistenceManager.save(data, for: Endpoint.live.get)
-                        DispatchQueue.main.async { [weak self] in
-                            self?.view?.updateUI(with: model)
-                        }
-                    }
-                }else {
-                    DispatchQueue.main.async { [weak self] in
-                        self?.view?.showErrorUI(with: "Oops!", message: AppError.parsingError.description)
-                    }
-                }
-                
-            case .failure(let error):
-                DispatchQueue.main.async { [weak self] in
-                    self?.view?.shouldShowLoader(false)
-                    self?.view?.showErrorUI(with: "Oops!", message: error.description)
-                }
-            }
+    
+    func convert() {
+        guard let value = Double(self.latestInputVlaue) else {
+            self.view?.updateToExchangeRate("")
+            self.view?.updateFromExchangeRate("")
+            return}
+        let val = currencyConverter.convert(value, valueCurrency: valueCurrency, outputCurrency: outputCurrency) ?? 0
+        guard let _sender = sender else {return}
+        switch _sender {
+        case .from:
+            self.view?.updateToExchangeRate(String(format: "%0.2f", val))
+        case .to:
+            self.view?.updateFromExchangeRate(String(format: "%0.2f", val))
         }
     }
 }

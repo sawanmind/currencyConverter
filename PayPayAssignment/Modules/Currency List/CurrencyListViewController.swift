@@ -10,7 +10,7 @@ import UIKit
 class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
 
 	var viewModel: CurrencyListViewModelProtocol?
-
+    
     override func loadView() {
         super.loadView()
         setupUI()
@@ -32,7 +32,7 @@ class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
     }()
 
     private lazy var containerView:CurrencyListView = {
-        let instance = CurrencyListView()
+        let instance = CurrencyListView(viewModel: self.viewModel)
         instance.delegate = self.viewModel
         instance.translatesAutoresizingMaskIntoConstraints = false
         instance.isHidden = true
@@ -49,6 +49,7 @@ class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
     private func setupUI() {
         self.view.backgroundColor = .white
         self.title = "Currency list"
+      
         self.view.addSubview(loader)
         loader.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         loader.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
@@ -71,11 +72,11 @@ class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
 
 
 extension CurrencyListViewController {
-    func updateUI(with data:CurrencyListModel) {
+    func updateUI() {
         self.loader.stopAnimating()
         self.errorView.isHidden = true
         self.containerView.isHidden = false
-        self.containerView.updateUI(with: data)
+        self.containerView.updateUI()
     }
     
     func showErrorUI(with title:String, message:String) {
